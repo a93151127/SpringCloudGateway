@@ -1,0 +1,14 @@
+server:
+  port: 8081
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: myRoute
+          uri: http://localhost:8082
+          predicates:
+            - Path=/server8082/*
+          filters:
+            - AddRequestHeader=Hello_Martin,World_Abi
+
